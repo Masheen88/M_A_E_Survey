@@ -39,6 +39,7 @@ for (let i = 0; i < officeHoursRadioButton.length; i++) {
           displayMoreHours = true;
           console.log("displayMoreHours:", displayMoreHours);
           displayPage();
+          window.location.hash = "#pollBody";
         } else if (longerHours.checked) {
           displayMoreHours = false;
           console.log("displayMoreHours:", displayMoreHours);
@@ -47,6 +48,8 @@ for (let i = 0; i < officeHoursRadioButton.length; i++) {
       }
     }
   };
+
+  window.scrollTo(0, document.body.scrollHeight);
 }
 
 function displayPage() {
@@ -54,8 +57,7 @@ function displayPage() {
 
   if (displayMoreHours === true) {
     pollBody.innerHTML = html` <form>
-      <label for="poll">What time of day do you prefer? <br /></label>
-      <br />
+      <h3 id="pollQuestion">What time of day do you prefer?</h3>
       <div class="pollitem">
         <input type="radio" id="morning" name="poll" value="morning" hidden />
         <label for="morning"
@@ -172,6 +174,8 @@ function displayPage() {
     body.style.transition = "background-color 3s ease-in-out";
     body.style.backgroundColor = "yellow";
     body.style.color = "black";
+
+    window.scrollTo(-1, document.body.scrollHeight);
   });
   //Morning Event Listener - End
 

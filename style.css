@@ -1,6 +1,6 @@
 #maeTitle {
   border-radius: 20px;
-  background-color: rgb(63, 63, 63);
+  background-color: #3f3f3f;
   text-align: center;
   font-size: 50px;
   color: white;
@@ -9,12 +9,19 @@
 
 body {
   color: white;
-  background-color: rgb(63, 63, 63);
+  background-color: #3f3f3f;
   display: grid;
   justify-content: center;
   align-items: center;
   height: 100vh;
   transition: 2s;
+}
+
+/* center the form on the page using grid */
+form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 #pollingContent {
@@ -31,7 +38,7 @@ img {
 }
 
 #morningImg:hover {
-  /* circle highlight  */
+  box-sizing: border-box;
   border: 10px solid #ffff00;
   border-radius: 50%;
   opacity: 0.9;
@@ -39,7 +46,7 @@ img {
 }
 
 #afternoonImg:hover {
-  /* circle highlight  */
+  box-sizing: border-box;
   border: 10px solid #ffa500;
   border-radius: 50%;
   opacity: 0.9;
@@ -47,7 +54,7 @@ img {
 }
 
 #eveningImg:hover {
-  /* circle highlight  */
+  box-sizing: border-box;
   border: 10px solid #0000ff;
   border-radius: 50%;
   opacity: 0.9;
@@ -61,17 +68,41 @@ img {
 
 /* center submit button inside existing grid */
 #submit {
+  border-radius: 20px;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
   margin-bottom: 2%;
-  border: 1px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 36px;
   color: white;
-  background-color: #000000;
-  margin: 5px auto;
+  background-color: #3f3f3f;
   display: grid;
   justify-content: center;
   align-items: center;
+  transition: 2s;
+}
+
+body.yellow #submit:hover {
+  box-sizing: border-box;
+  color: #ffff00;
+  border: 10px solid #3f3f3f;
+  border-radius: 20px;
+  transition: 2s;
+}
+
+body.orange #submit:hover {
+  box-sizing: border-box;
+  color: #ffa500;
+  border: 10px solid #3f3f3f;
+  border-radius: 20px;
+  transition: 2s;
+}
+
+body.blue #submit:hover {
+  box-sizing: border-box;
+  color: #0000ff;
+  border: 10px solid #3f3f3f;
+  border-radius: 20px;
   transition: 2s;
 }
 
