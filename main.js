@@ -311,6 +311,7 @@ function getData() {
     //   console.log(data);
     let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
     let ipData = await ip.json();
+
     let ipExists = false;
     for (let i = 0; i < data.length; i++) {
       // console.log(data[i].ipAddress);
@@ -352,6 +353,8 @@ function getData() {
       let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
       let ipData = await ip.json();
       ip = ipData.ip;
+      //turn the ip into a hashvalue
+
       let dataForAPI = [];
 
       //MORNING
@@ -415,7 +418,7 @@ function getData() {
       //AFTERNOON
       else if (document.getElementById("afternoon").checked) {
         // if afternoon is selected post to api
-        console.log("afternoon ip:", ip);
+        // console.log("afternoon ip:", ip);
         fetch(apiEndPoint, {
           method: "POST",
           headers: {
