@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAE App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="body">
+    <!-- give the tag below an underline style attribute -->
+
+    <!-- #ffff00 - yellow */ /* #ffa500 - orange */ /* #0000ff - blue -->
+
+    <h1 id="maeTitle">
+      Good <span style="color: #ffff00">Morning</span>,
+      <span style="color: #ffa500">Afternoon</span>, &
+      <span style="color: #0000ff">Evening</span> Polling App
+    </h1>
+
+    <div id="pollingContent">
+      <!-- Office hours rate - Begin -->
+      <div id="officeHoursRate">
+        <label for="officeHours">More office hours (1hr)?</label>
+        <input
+          type="radio"
+          class="officeHoursRateBtn"
+          id="moreHours"
+          name="officeHours"
+          value="officeHours"
+        />
+        <br />
+        <label for="longerHours">Longer office hours (1.5hrs)?</label>
+        <input
+          type="radio"
+          class="officeHoursRateBtn"
+          id="longerHours"
+          name="longerHours"
+          value="longerHours"
+        />
+      </div>
+      <!-- Office hours rate - End -->
+    </div>
+
+    <div id="pollBody"></div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

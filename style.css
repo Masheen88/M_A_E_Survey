@@ -1,0 +1,105 @@
+#maeTitle {
+  border-radius: 20px;
+  background-color: rgb(63, 63, 63);
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  padding: 10px;
+}
+
+body {
+  color: white;
+  background-color: rgb(63, 63, 63);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: 2s;
+}
+
+#pollingContent {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  justify-self: center;
+  margin: 5px auto;
+  width: 100px;
+  height: 100px;
+}
+
+#morningImg:hover {
+  /* circle highlight  */
+  border: 10px solid #ffff00;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#afternoonImg:hover {
+  /* circle highlight  */
+  border: 10px solid #ffa500;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#eveningImg:hover {
+  /* circle highlight  */
+  border: 10px solid #0000ff;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+/* center pollItem */
+.pollitem {
+  text-align: center;
+}
+
+/* center submit button inside existing grid */
+#submit {
+  border: 1px solid black;
+  color: white;
+  background-color: #000000;
+  margin: 5px auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transition: 2s;
+}
+
+#submit:disabled {
+  color: red;
+  text-decoration: line-through;
+}
+
+#officeHoursRate {
+  border: 1px solid black;
+}
+
+/* if body is yellow, fades #submit color and background color */
+body.yellow #submit #officeHoursRate .date {
+  color: black;
+  border-color: black;
+  background-color: #ffff00;
+  transition: 2s;
+}
+
+/* if body is orange, fades #submit color and background color */
+body.orange #submit #officeHoursRate .date {
+  color: black;
+  border-color: black;
+  background-color: #ffa500;
+  transition: 2s;
+}
+
+/* if body is blue, fades #submit color and background color */
+body.blue #submit #officeHoursRate .date {
+  color: white;
+  border-color: white;
+  background-color: #0000ff;
+  transition: 2s;
+}
