@@ -258,6 +258,7 @@ function displayPage() {
 // on click of submit button get values from form, and ip address and post to api
 function getData() {
   console.log("Getting data...");
+
   // API Section - Begin
   let apiEndPoint =
     "https://62c85d578c90491c2cb47da3.mockapi.io/Promineo_Tech_API/mae_app_polling"; // api endpoint
@@ -266,6 +267,7 @@ function getData() {
   // let ip = "https://api.ipify.org?format=json"; // gets ip address from browser
 
   // async await function to check if ip address exists in api then prevent from posting to api and clicking on submit button
+  //checkIp - Begin
   async function checkIp() {
     console.log("checkIp function called");
     let response = await fetch(apiEndPoint);
@@ -288,8 +290,9 @@ function getData() {
       return;
     }
   }
+  //checkIp - End
 
-  //  if checkIp cant run then alert user to try again
+  //  if checkIp an error occurs the user is alerted.
   checkIp().catch((error) => {
     console.log(error);
     alert(
@@ -300,19 +303,24 @@ function getData() {
 
   //if adblocker is on disable submit button
   if (typeof ip === "undefined") {
-    console.log("undefined submit:", submit);
+    alert(
+      "It appears you have ad/tracker blocking enable in your browser, please disable for this site and try again"
+    );
+    // console.log("undefined submit:", submit);
     submit.disabled = true;
   }
 
   // on submit button click get values from form and ip address and post to api
   submit.addEventListener("click", function () {
-    // if nothing is selected alert user to select a time of day
     getIp();
     // async await getIp function
     async function getIp() {
       let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
       let ipData = await ip.json();
+      ip = ipData.ip;
+      let dataForAPI = [];
 
+      //MORNING
       // preferred time of day values
       let morningValue = document.getElementById("morning").value;
       let afternoonValue = document.getElementById("afternoon").value;
@@ -324,7 +332,7 @@ function getData() {
       let monday3Value = document.getElementById("monday3");
 
       //check which values are selected and push to array
-      let dataForAPI = [];
+
       if (monday1Value.checked) {
         dataForAPI.push(monday1Value.value);
       }
@@ -334,10 +342,7 @@ function getData() {
       if (monday3Value.checked) {
         dataForAPI.push(monday3Value.value);
       }
-
       console.log("dataForAPI:", dataForAPI);
-
-      ip = ipData.ip;
 
       if (
         !document.getElementById("morning").checked &&
@@ -345,7 +350,10 @@ function getData() {
         !document.getElementById("evening").checked
       ) {
         alert("Please select a time of day");
-      } else if (document.getElementById("morning").checked) {
+      }
+
+      //MORNING
+      else if (document.getElementById("morning").checked) {
         // if morning is selected post to api
         console.log("morning ip", ip);
         fetch(apiEndPoint, {
@@ -368,7 +376,10 @@ function getData() {
           .catch((error) => {
             console.error("Error:", error);
           });
-      } else if (document.getElementById("afternoon").checked) {
+      }
+
+      //AFTERNOON
+      else if (document.getElementById("afternoon").checked) {
         // if afternoon is selected post to api
         console.log("afternoon ip:", ip);
         fetch(apiEndPoint, {
@@ -390,7 +401,9 @@ function getData() {
           .catch((error) => {
             console.error("Error:", error);
           });
-      } else if (document.getElementById("evening").checked) {
+      }
+      //EVENING
+      else if (document.getElementById("evening").checked) {
         // if evening is selected post to api
         console.log("evening ip:", ip);
         fetch(apiEndPoint, {
