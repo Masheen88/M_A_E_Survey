@@ -120,6 +120,8 @@ function displayPage() {
       <br />
       <input id="submit" type="button" value="Submit" />
     </form>`;
+  } else if (displayMoreHours === false) {
+    alert("You want longer office hours, so click on that for now ;)");
   }
 
   let pollBodyTimes = document.getElementById("pollBodyTimes"); //this is the div that will hold the times
@@ -337,9 +339,7 @@ function getData() {
 
   //if adblocker is on disable submit button
   if (typeof ip === "undefined") {
-    alert(
-      "It appears you have ad/tracker blocking enable in your browser, please disable for this site and try again"
-    );
+    // alert("You have already submitted!");
     // console.log("undefined submit:", submit);
     submit.disabled = true;
   }
