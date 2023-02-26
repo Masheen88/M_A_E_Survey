@@ -135,15 +135,30 @@ function displayPage() {
         <h5>Morning</h5>
         <p>
           <label>10pm (EST) 9am (CST) 8am (MST) 7am (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday1"
+            name="monday"
+            value="10pm (EST) 9am (CST) 8am (MST) 7am (PST)"
+          />
         </p>
         <p>
           <label>11pm (EST) 10am (CST) 9am (MST) 8am (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday2"
+            name="monday"
+            value="11pm (EST) 10am (CST) 9am (MST) 8am (PST)"
+          />
         </p>
         <p>
           <label>12pm (EST) 11am (CST) 10am (MST) 9am (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday3"
+            name="monday"
+            value="12pm (EST) 11am (CST) 10am (MST) 9am (PST)"
+          />
         </p>
       </div>
       <!-- Morning Times - End -->`;
@@ -297,6 +312,31 @@ function getData() {
     async function getIp() {
       let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
       let ipData = await ip.json();
+
+      // preferred time of day values
+      let morningValue = document.getElementById("morning").value;
+      let afternoonValue = document.getElementById("afternoon").value;
+      let eveningValue = document.getElementById("evening").value;
+
+      //selected days of week values
+      let monday1Value = document.getElementById("monday1");
+      let monday2Value = document.getElementById("monday2");
+      let monday3Value = document.getElementById("monday3");
+
+      //check which values are selected and push to array
+      let dataForAPI = [];
+      if (monday1Value.checked) {
+        dataForAPI.push(monday1Value.value);
+      }
+      if (monday2Value.checked) {
+        dataForAPI.push(monday2Value.value);
+      }
+      if (monday3Value.checked) {
+        dataForAPI.push(monday3Value.value);
+      }
+
+      console.log("dataForAPI:", dataForAPI);
+
       ip = ipData.ip;
 
       if (
@@ -316,6 +356,7 @@ function getData() {
           body: JSON.stringify({
             timeOfDay: morningValue,
             ipAddress: ip,
+            dataForAPI,
           }),
         })
           .then((response) => response.json())
