@@ -192,15 +192,30 @@ function displayPage() {
         <h5>Afternoon</h5>
         <p>
           <label>2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday1"
+            name="monday"
+            value="2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)"
+          />
         </p>
         <p>
           <label>3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday2"
+            name="monday"
+            value="3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)"
+          />
         </p>
         <p>
           <label>4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday3"
+            name="monday"
+            value="4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)"
+          />
         </p>
       </div>
       <!-- Afternoon Times - End -->`;
@@ -229,15 +244,30 @@ function displayPage() {
         <h5>Evening</h5>
         <p>
           <label>5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday1"
+            name="monday"
+            value="5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)"
+          />
         </p>
         <p>
           <label>6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday2"
+            name="monday"
+            value="6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)"
+          />
         </p>
         <p>
           <label>7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)</label>
-          <input type="checkbox" id="monday" name="monday" value="monday" />
+          <input
+            type="checkbox"
+            id="monday3"
+            name="monday"
+            value="7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)"
+          />
         </p>
       </div>
       <!-- Evening Times - End -->`;
@@ -394,6 +424,7 @@ function getData() {
           body: JSON.stringify({
             timeOfDay: afternoonValue,
             ipAddress: ip,
+            dataForAPI,
           }),
         })
           .then((response) => response.json())
@@ -418,6 +449,7 @@ function getData() {
           body: JSON.stringify({
             timeOfDay: eveningValue,
             ipAddress: ip,
+            dataForAPI,
           }),
         })
           .then((response) => response.json())
