@@ -1,11 +1,12 @@
 #maeTitle {
   border-radius: 20px;
-  background-color: #3f3f3f72;
+  background-color: #3f3f3f41;
   text-align: center;
   font-size: 50px;
   color: white;
   padding: 10px;
   transition: 1s ease-in-out;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 label[for="moreHours"],
@@ -14,12 +15,8 @@ label[for="longerHours"] {
 }
 
 input[type="radio"] {
-  width: 25px;
-  height: 25px;
-}
-
-#moreHours {
-  font-size: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 body {
@@ -33,18 +30,11 @@ body {
 }
 
 /* center the form on the page using grid */
-form {
-  border-radius: 20px;
-  background-color: #3f3f3f72;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
 
 #pollingContent {
   align-items: center;
   border-radius: 20px;
-  background-color: #3f3f3f72;
+  background-color: #3f3f3f41;
   display: grid;
   justify-content: center;
   padding-top: 10px;
@@ -52,6 +42,20 @@ form {
   margin-bottom: 20px;
 }
 
+form {
+  border-radius: 20px;
+  background-color: #3f3f3f41;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/* center pollItem */
+.pollitem {
+  text-align: center;
+}
+
+/* pollItem Image Styling - Begin */
 img {
   justify-self: center;
   margin: 5px auto;
@@ -59,9 +63,46 @@ img {
   height: 100px;
 }
 
-/* center pollItem */
-.pollitem {
-  text-align: center;
+/* Time of day selection on hover */
+#morningImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #cbbd9b;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#afternoonImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #b17869;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#eveningImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #5970a9;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+/* pollItem Image Styling - End */
+
+/* Submit button styles - Begin */
+#submit {
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 2%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 36px;
+  color: white;
+  background-color: #3f3f3f;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transition: 2s;
 }
 
 body.yellow #submit:hover {
@@ -88,72 +129,69 @@ body.blue #submit:hover {
   transition: 2s;
 }
 
-#submit {
-  border-radius: 20px;
-  width: 100%;
-  margin-bottom: 2%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 36px;
-  color: white;
-  background-color: #3f3f3f;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  transition: 2s;
-}
-
 #submit:disabled {
   color: red;
   text-decoration: line-through;
 }
+/* Submit button styles - End */
+
+/* Office Time Animation - Begin */
+.expand-animation {
+  animation-name: expand;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  max-height: 0;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px; /* set the maximum height you want to allow the element to expand to */
+  }
+}
+
+/* Office Time Animation - End */
+
+/* Week Day Styling - Begin */
+#Monday,
+#Tuesday,
+#Wednesday,
+#Thursday,
+#Friday,
+#Saturday,
+#Sunday {
+  /* border-radius: 20px; */
+  padding: 5px;
+  margin: 5px;
+}
+
+/* Week Day Styling - End */
 
 /* if body is yellow, fades #submit color and background color */
-body.yellow #submit #officeHoursRate .date {
+/* body.yellow #submit #officeHoursRate .date {
   color: black;
   border-color: black;
   background-color: #cbbd9b;
   transition: 2s ease-in-out;
-}
+} */
 
 /* if body is orange, fades #submit color and background color */
-body.orange #submit #officeHoursRate .date {
+/* body.orange #submit #officeHoursRate .date {
   color: black;
   border-color: black;
   background-color: #b17869;
   transition: 2s ease-in-out;
-}
+} */
 
 /* if body is blue, fades #submit color and background color */
-body.blue #submit #officeHoursRate .date {
+/* body.blue #submit #officeHoursRate .date {
   color: white;
   border-color: white;
   background-color: #5970a9;
   transition: 2s ease-in-out;
-}
-
-/* Time of day selection on hover - Begin */
-#morningImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #cbbd9b;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-
-#afternoonImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #b17869;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-
-#eveningImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #5970a9;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-/* Time of day selection on hover - End */
+} */
