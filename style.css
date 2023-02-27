@@ -32,6 +32,8 @@ body {
   transition: 2s ease-in-out;
 }
 
+/* If it's evening applies a shadow to the text */
+body.blue #pollingContent,
 body.blue div#pollBody {
   text-shadow: 2px 2px 4px #000000;
 }
