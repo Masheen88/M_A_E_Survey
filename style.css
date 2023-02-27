@@ -7,6 +7,20 @@
   padding: 10px;
 }
 
+label[for="moreHours"],
+label[for="longerHours"] {
+  font-size: 36px;
+}
+
+input[type="radio"] {
+  width: 25px;
+  height: 25px;
+}
+
+#moreHours {
+  font-size: 36px;
+}
+
 body {
   color: white;
   background-color: #3f3f3f;
@@ -19,15 +33,22 @@ body {
 
 /* center the form on the page using grid */
 form {
+  border-radius: 20px;
+  background-color: #3f3f3f72;
   display: grid;
   justify-content: center;
   align-items: center;
 }
 
 #pollingContent {
+  align-items: center;
+  border-radius: 20px;
+  background-color: #3f3f3f72;
   display: grid;
   justify-content: center;
-  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 img {
@@ -37,49 +58,9 @@ img {
   height: 100px;
 }
 
-#morningImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #ffff00;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-
-#afternoonImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #ffa500;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-
-#eveningImg:hover {
-  box-sizing: border-box;
-  border: 10px solid #0000ff;
-  border-radius: 50%;
-  opacity: 0.9;
-  transition: 2s;
-}
-
 /* center pollItem */
 .pollitem {
   text-align: center;
-}
-
-/* center submit button inside existing grid */
-#submit {
-  border-radius: 20px;
-  width: 100%;
-  margin-bottom: 2%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 36px;
-  color: white;
-  background-color: #3f3f3f;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  transition: 2s;
 }
 
 body.yellow #submit:hover {
@@ -106,13 +87,24 @@ body.blue #submit:hover {
   transition: 2s;
 }
 
+#submit {
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 2%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 36px;
+  color: white;
+  background-color: #3f3f3f;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transition: 2s;
+}
+
 #submit:disabled {
   color: red;
   text-decoration: line-through;
-}
-
-#officeHoursRate {
-  border: 1px solid black;
 }
 
 /* if body is yellow, fades #submit color and background color */
@@ -138,3 +130,29 @@ body.blue #submit #officeHoursRate .date {
   background-color: #0000ff;
   transition: 2s;
 }
+
+/* Time of day selection on hover - Begin */
+#morningImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #ffff00;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#afternoonImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #ffa500;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+
+#eveningImg:hover {
+  box-sizing: border-box;
+  border: 10px solid #0000ff;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: 2s;
+}
+/* Time of day selection on hover - End */

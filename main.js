@@ -1,7 +1,10 @@
 console.log("Good Morning, Afternoon, & Eventing! - Polling App");
 
-//Lit HTML - Begin
-//formats html in a template literal using the lit-html library
+/* lit-html snippet - Begin
+   Add to the top of your code. Works with html or jsx!
+   Formats html in a template literal  using the lit-html library 
+   Syntax: html`<div> html or jsx here! ${variable} </div>`
+   */
 let html = (strings, ...values) => {
   let str = "";
   strings.forEach((string, i) => {
@@ -9,7 +12,7 @@ let html = (strings, ...values) => {
   });
   return str;
 };
-//Lit HTML - End
+//lit-html snippet - End
 
 let body = document.getElementById("body"); //Page Body
 let officeHoursRateBody = document.getElementById("officeHoursRate"); //Office Hours Rate Selection
@@ -54,8 +57,13 @@ for (let i = 0; i < officeHoursRadioButton.length; i++) {
 
 function displayPage() {
   let pollBody = document.getElementById("pollBody");
+  pollBody.style.opacity = 0;
 
+  // If the user selects "More Hours" then display the poll
   if (displayMoreHours === true) {
+    pollBody.innerHTML = ""; //Refreshes the poll body section
+
+    //Poll Body - Begin
     pollBody.innerHTML = html` <form>
       <h3 id="pollQuestion">What time of day do you prefer?</h3>
       <div class="pollitem">
@@ -120,175 +128,197 @@ function displayPage() {
       <br />
       <input id="submit" type="button" value="Submit" />
     </form>`;
-  } else if (displayMoreHours === false) {
-    alert("You want longer office hours, so click on that for now ;)");
+    //Poll Body - Begin
+
+    setTimeout(function () {
+      pollBody.style.transition = "opacity 1s ease-in-out";
+      pollBody.style.opacity = 1;
+    }, 0);
+    displayPollBodyTimes();
   }
 
-  let pollBodyTimes = document.getElementById("pollBodyTimes"); //this is the div that will hold the times
+  // If the user selects "Longer Hours" then display the poll
+  else if (displayMoreHours === false) {
+    pollBody.innerHTML = ""; //Refreshes the poll body section
+    setTimeout(function () {
+      alert("You want longer office hours, so click on that for now ;)");
+    }, 0);
+  }
 
-  // Morning Event Listener - Begin
-  let morning = document.getElementById("morning");
-  morning.addEventListener("click", function () {
-    console.log("morning clicked");
-
+  function displayPollBodyTimes() {
+    let pollBodyTimes = document.getElementById("pollBodyTimes"); //this is the div that will hold the times
     console.log("pollBodyTimes:", pollBodyTimes);
-    //clear pollBodyTimes first
-    pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
-    pollBodyTimes.innerHTML = html`<!-- Morning Times - Begin -->
-      <div class="officeDateTimes" id="morning-times">
-        <h5>Morning</h5>
-        <p>
-          <label>10pm (EST) 9am (CST) 8am (MST) 7am (PST)</label>
-          <input
-            type="checkbox"
-            id="monday1"
-            name="monday"
-            value="10pm (EST) 9am (CST) 8am (MST) 7am (PST)"
-          />
-        </p>
-        <p>
-          <label>11pm (EST) 10am (CST) 9am (MST) 8am (PST)</label>
-          <input
-            type="checkbox"
-            id="monday2"
-            name="monday"
-            value="11pm (EST) 10am (CST) 9am (MST) 8am (PST)"
-          />
-        </p>
-        <p>
-          <label>12pm (EST) 11am (CST) 10am (MST) 9am (PST)</label>
-          <input
-            type="checkbox"
-            id="monday3"
-            name="monday"
-            value="12pm (EST) 11am (CST) 10am (MST) 9am (PST)"
-          />
-        </p>
-      </div>
-      <!-- Morning Times - End -->`;
+    // Morning Event Listener - Begin
+    let morning = document.getElementById("morning");
 
-    body.classList.add("yellow");
-    //   fade in background to yellow over 3 seconds
-    if (body.classList.contains("orange") || body.classList.contains("blue")) {
-      body.classList.remove("orange", "blue");
-    }
-    //   fade in background to yellow over 3 seconds
-    body.style.transition = "background-color 3s ease-in-out";
-    body.style.backgroundColor = "yellow";
-    body.style.color = "black";
+    morning.addEventListener("click", function () {
+      console.log("morning clicked");
 
-    window.scrollTo(-1, document.body.scrollHeight);
-  });
-  //Morning Event Listener - End
+      console.log("pollBodyTimes:", pollBodyTimes);
+      //clear pollBodyTimes first
+      pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+      pollBodyTimes.innerHTML = html`<!-- Morning Times - Begin -->
+        <div class="officeDateTimes" id="morning-times">
+          <h5>Morning</h5>
+          <p>
+            <label>10pm (EST) 9am (CST) 8am (MST) 7am (PST)</label>
+            <input
+              type="checkbox"
+              id="monday1"
+              name="monday"
+              value="10pm (EST) 9am (CST) 8am (MST) 7am (PST)"
+            />
+          </p>
+          <p>
+            <label>11pm (EST) 10am (CST) 9am (MST) 8am (PST)</label>
+            <input
+              type="checkbox"
+              id="monday2"
+              name="monday"
+              value="11pm (EST) 10am (CST) 9am (MST) 8am (PST)"
+            />
+          </p>
+          <p>
+            <label>12pm (EST) 11am (CST) 10am (MST) 9am (PST)</label>
+            <input
+              type="checkbox"
+              id="monday3"
+              name="monday"
+              value="12pm (EST) 11am (CST) 10am (MST) 9am (PST)"
+            />
+          </p>
+        </div>
+        <!-- Morning Times - End -->`;
 
-  //Afternoon
-  let afternoon = document.getElementById("afternoon");
-  afternoon.addEventListener("click", function () {
-    console.log("afternoon clicked");
+      body.classList.add("yellow");
+      //   fade in background to yellow over 3 seconds
+      if (
+        body.classList.contains("orange") ||
+        body.classList.contains("blue")
+      ) {
+        body.classList.remove("orange", "blue");
+      }
+      //   fade in background to yellow over 3 seconds
+      body.style.transition = "background-color 3s ease-in-out";
+      body.style.backgroundColor = "yellow";
+      body.style.color = "black";
 
-    console.log("pollBodyTimes:", pollBodyTimes);
-    //clear pollBodyTimes first
-    pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
-    pollBodyTimes.innerHTML = html` <!-- Afternoon Times - Begin -->
-      <div class="officeDateTimes" id="afternoon-times">
-        <h5>Afternoon</h5>
-        <p>
-          <label>2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday1"
-            name="monday"
-            value="2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)"
-          />
-        </p>
-        <p>
-          <label>3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday2"
-            name="monday"
-            value="3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)"
-          />
-        </p>
-        <p>
-          <label>4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday3"
-            name="monday"
-            value="4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)"
-          />
-        </p>
-      </div>
-      <!-- Afternoon Times - End -->`;
+      window.scrollTo(-1, document.body.scrollHeight);
+    });
+    //Morning Event Listener - End
 
-    body.classList.add("orange");
-    //   fade in background to orange over 3 seconds
-    if (body.classList.contains("yellow") || body.classList.contains("blue")) {
-      body.classList.remove("yellow", "blue");
-    }
-    //   fade in background to orange over 3 seconds
-    body.style.transition = "background-color 3s ease-in-out";
-    body.style.backgroundColor = "orange";
-    body.style.color = "black";
-  });
+    //Afternoon
+    let afternoon = document.getElementById("afternoon");
+    afternoon.addEventListener("click", function () {
+      console.log("afternoon clicked");
 
-  //Evening
-  let evening = document.getElementById("evening");
-  evening.addEventListener("click", function () {
-    console.log("evening clicked");
+      console.log("pollBodyTimes:", pollBodyTimes);
+      //clear pollBodyTimes first
+      pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+      pollBodyTimes.innerHTML = html` <!-- Afternoon Times - Begin -->
+        <div class="officeDateTimes" id="afternoon-times">
+          <h5>Afternoon</h5>
+          <p>
+            <label>2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday1"
+              name="monday"
+              value="2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)"
+            />
+          </p>
+          <p>
+            <label>3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday2"
+              name="monday"
+              value="3pm (EST) 2pm (CST) 1pm (MST) 12pm (PST)"
+            />
+          </p>
+          <p>
+            <label>4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday3"
+              name="monday"
+              value="4pm (EST) 3pm (CST) 2pm (MST) 1pm (PST)"
+            />
+          </p>
+        </div>
+        <!-- Afternoon Times - End -->`;
 
-    console.log("pollBodyTimes:", pollBodyTimes);
-    //clear pollBodyTimes first
-    pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
-    pollBodyTimes.innerHTML = html` <!-- Evening Times - Begin -->
-      <div class="officeDateTimes" id="evening-times">
-        <h5>Evening</h5>
-        <p>
-          <label>5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday1"
-            name="monday"
-            value="5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)"
-          />
-        </p>
-        <p>
-          <label>6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday2"
-            name="monday"
-            value="6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)"
-          />
-        </p>
-        <p>
-          <label>7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)</label>
-          <input
-            type="checkbox"
-            id="monday3"
-            name="monday"
-            value="7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)"
-          />
-        </p>
-      </div>
-      <!-- Evening Times - End -->`;
+      body.classList.add("orange");
+      //   fade in background to orange over 3 seconds
+      if (
+        body.classList.contains("yellow") ||
+        body.classList.contains("blue")
+      ) {
+        body.classList.remove("yellow", "blue");
+      }
+      //   fade in background to orange over 3 seconds
+      body.style.transition = "background-color 3s ease-in-out";
+      body.style.backgroundColor = "orange";
+      body.style.color = "black";
+    });
 
-    body.classList.add("blue");
-    //   fade in background to blue over 3 seconds
-    if (
-      body.classList.contains("yellow") ||
-      body.classList.contains("orange")
-    ) {
-      body.classList.remove("yellow", "orange");
-    }
-    //   fade in background to blue over 3 seconds
-    body.style.transition = "background-color 3s ease-in-out";
-    body.style.backgroundColor = "blue";
-    body.style.color = "white";
-  });
+    //Evening
+    let evening = document.getElementById("evening");
+    evening.addEventListener("click", function () {
+      console.log("evening clicked");
 
-  getData();
+      console.log("pollBodyTimes:", pollBodyTimes);
+      //clear pollBodyTimes first
+      pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+      pollBodyTimes.innerHTML = html` <!-- Evening Times - Begin -->
+        <div class="officeDateTimes" id="evening-times">
+          <h5>Evening</h5>
+          <p>
+            <label>5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday1"
+              name="monday"
+              value="5pm (EST) 4pm (CST) 3pm (MST) 2pm (PST)"
+            />
+          </p>
+          <p>
+            <label>6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday2"
+              name="monday"
+              value="6pm (EST) 5pm (CST) 4pm (MST) 3pm (PST)"
+            />
+          </p>
+          <p>
+            <label>7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)</label>
+            <input
+              type="checkbox"
+              id="monday3"
+              name="monday"
+              value="7pm (EST) 6pm (CST) 5pm (MST) 4pm (PST)"
+            />
+          </p>
+        </div>
+        <!-- Evening Times - End -->`;
+
+      body.classList.add("blue");
+      //   fade in background to blue over 3 seconds
+      if (
+        body.classList.contains("yellow") ||
+        body.classList.contains("orange")
+      ) {
+        body.classList.remove("yellow", "orange");
+      }
+      //   fade in background to blue over 3 seconds
+      body.style.transition = "background-color 3s ease-in-out";
+      body.style.backgroundColor = "blue";
+      body.style.color = "white";
+    });
+
+    getData();
+  }
 }
 
 // on click of submit button get values from form, and ip address and post to api
