@@ -32,6 +32,10 @@ body {
   transition: 2s ease-in-out;
 }
 
+body.blue div#pollBody {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 /* center the form on the page using grid */
 
 #pollingContent {
