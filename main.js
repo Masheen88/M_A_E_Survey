@@ -158,6 +158,7 @@ function displayPage() {
       setTimeout(function () {
         pollBodyTimes.style.border = "none";
         pollBodyTimes.style.opacity = 1;
+        pollBodyTimes.style.textShadow = "none";
         pollBodyTimes.innerHTML = html`<!-- Morning Times - Begin -->
           <!-- Monday - Begin -->
           <div class="date expand-animation" id="Monday">
@@ -260,12 +261,14 @@ function displayPage() {
       // console.log("pollBodyTimes:", pollBodyTimes);
 
       pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
-      pollBodyTimes.style.transition = "opacity 0.5s ease-in-out";
+      pollBodyTimes.style.transition =
+        "opacity 0.5s ease-in-out text-shadow 0.5s";
       pollBodyTimes.style.opacity = 0;
 
       setTimeout(function () {
         pollBodyTimes.style.border = "none";
         pollBodyTimes.style.opacity = 1;
+        pollBodyTimes.style.textShadow = "none";
         pollBodyTimes.innerHTML = html` <!-- Afternoon Times - Begin -->
           <!-- Monday - Begin -->
           <div class="date expand-animation" id="Monday">
@@ -366,12 +369,14 @@ function displayPage() {
       // console.log("pollBodyTimes:", pollBodyTimes);
 
       pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
-      pollBodyTimes.style.transition = "opacity 0.5s ease-in-out";
+      pollBodyTimes.style.transition =
+        "opacity 0.5s ease-in-out text-shadow 0.5s ease-in-out";
       pollBodyTimes.style.opacity = 0;
 
       setTimeout(function () {
         pollBodyTimes.style.border = "none";
         pollBodyTimes.style.opacity = 1;
+        pollBodyTimes.style.textShadow = "2px 2px 4px #000000";
         pollBodyTimes.innerHTML = html` <!-- Evening Times - Begin -->
         <!-- Monday - Begin -->
         <div class="date expand-animation" id="Monday">
