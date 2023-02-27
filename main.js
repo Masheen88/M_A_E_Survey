@@ -268,9 +268,9 @@ function displayPage() {
         pollBodyTimes.style.opacity = 1;
         pollBodyTimes.innerHTML = html` <!-- Afternoon Times - Begin -->
           <!-- Monday - Begin -->
-          <div class="date" id="Monday">
+          <div class="date expand-animation" id="Monday">
             <h4>Monday:</h4>
-            <div class="officeDateTimes expand-animation" id="afternoon-times">
+            <div class="officeDateTimes" id="afternoon-times">
               <p>
                 <label>2pm (EST) 1pm (CST) 12pm (MST) 11pm (PST)</label>
                 <input

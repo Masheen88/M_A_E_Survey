@@ -1,3 +1,4 @@
+/* Page Title */
 #maeTitle {
   border-radius: 20px;
   background-color: #3f3f3f41;
@@ -9,6 +10,7 @@
   text-shadow: 2px 2px 4px #000000;
 }
 
+/* Labels for initial selection */
 label[for="moreHours"],
 label[for="longerHours"] {
   font-size: 36px;
@@ -19,6 +21,7 @@ input[type="radio"] {
   height: 30px;
 }
 
+/* Body Section default formatting */
 body {
   color: white;
   background-color: #3f3f3f;
@@ -169,6 +172,42 @@ body.blue #submit:hover {
   padding: 5px;
   margin: 5px;
 }
+
+/* Grid System for the polling form - Begin */
+
+#pollBodyTimes {
+  /*  */
+  display: grid;
+}
+
+#Monday {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+}
+/* center align the h4 contained in Monday to its own row and column */
+#Monday h4 {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+  align-self: center;
+}
+
+#Tuesday {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+}
+
+#Tuesday h4 {
+  /* make the column take up the entire space */
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Grid System for the polling form - End */
 
 /* Week Day Styling - End */
 
