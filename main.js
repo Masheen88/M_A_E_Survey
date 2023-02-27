@@ -147,16 +147,18 @@ function displayPage() {
 
   function displayPollBodyTimes() {
     let pollBodyTimes = document.getElementById("pollBodyTimes"); //this is the div that will hold the times
-    console.log("pollBodyTimes:", pollBodyTimes);
-    // Morning Event Listener - Begin
+    // console.log("pollBodyTimes:", pollBodyTimes);
+
     let morning = document.getElementById("morning");
-
+    // Morning Event Listener - Begin
     morning.addEventListener("click", function () {
-      console.log("morning clicked");
+      // console.log("morning clicked");
+      // console.log("pollBodyTimes:", pollBodyTimes);
 
-      console.log("pollBodyTimes:", pollBodyTimes);
       //clear pollBodyTimes first
       pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+
+      pollBodyTimes.style.opacity = 0;
       pollBodyTimes.innerHTML = html`<!-- Morning Times - Begin -->
         <div class="officeDateTimes" id="morning-times">
           <h5>Morning</h5>
@@ -189,6 +191,10 @@ function displayPage() {
           </p>
         </div>
         <!-- Morning Times - End -->`;
+      setTimeout(function () {
+        pollBodyTimes.style.transition = "opacity 1s ease-in-out";
+        pollBodyTimes.style.opacity = 1;
+      }, 0);
 
       body.classList.add("yellow");
       //   fade in background to yellow over 3 seconds
@@ -199,8 +205,8 @@ function displayPage() {
         body.classList.remove("orange", "blue");
       }
       //   fade in background to yellow over 3 seconds
-      body.style.transition = "background-color 3s ease-in-out";
-      body.style.backgroundColor = "yellow";
+      body.style.transition = "color background-color 3s ease-in-out";
+      body.style.backgroundColor = "#CBBD9B";
       body.style.color = "black";
 
       window.scrollTo(-1, document.body.scrollHeight);
@@ -210,11 +216,13 @@ function displayPage() {
     //Afternoon
     let afternoon = document.getElementById("afternoon");
     afternoon.addEventListener("click", function () {
-      console.log("afternoon clicked");
+      // console.log("afternoon clicked");
+      // console.log("pollBodyTimes:", pollBodyTimes);
 
-      console.log("pollBodyTimes:", pollBodyTimes);
       //clear pollBodyTimes first
       pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+      pollBodyTimes.style.opacity = 0;
+
       pollBodyTimes.innerHTML = html` <!-- Afternoon Times - Begin -->
         <div class="officeDateTimes" id="afternoon-times">
           <h5>Afternoon</h5>
@@ -247,6 +255,10 @@ function displayPage() {
           </p>
         </div>
         <!-- Afternoon Times - End -->`;
+      setTimeout(function () {
+        pollBodyTimes.style.transition = "opacity 1s ease-in-out";
+        pollBodyTimes.style.opacity = 1;
+      }, 0);
 
       body.classList.add("orange");
       //   fade in background to orange over 3 seconds
@@ -257,19 +269,21 @@ function displayPage() {
         body.classList.remove("yellow", "blue");
       }
       //   fade in background to orange over 3 seconds
-      body.style.transition = "background-color 3s ease-in-out";
-      body.style.backgroundColor = "orange";
+      body.style.transition = "color background-color 3s ease-in-out";
+      body.style.backgroundColor = "#b17869";
       body.style.color = "black";
     });
 
     //Evening
     let evening = document.getElementById("evening");
     evening.addEventListener("click", function () {
-      console.log("evening clicked");
+      // console.log("evening clicked");
+      // console.log("pollBodyTimes:", pollBodyTimes);
 
-      console.log("pollBodyTimes:", pollBodyTimes);
       //clear pollBodyTimes first
       pollBodyTimes.innerHTML = ""; //this clears the div adding new data to it each time
+      pollBodyTimes.style.opacity = 0;
+
       pollBodyTimes.innerHTML = html` <!-- Evening Times - Begin -->
         <div class="officeDateTimes" id="evening-times">
           <h5>Evening</h5>
@@ -302,6 +316,10 @@ function displayPage() {
           </p>
         </div>
         <!-- Evening Times - End -->`;
+      setTimeout(function () {
+        pollBodyTimes.style.transition = "opacity 1s ease-in-out";
+        pollBodyTimes.style.opacity = 1;
+      }, 0);
 
       body.classList.add("blue");
       //   fade in background to blue over 3 seconds
@@ -312,8 +330,8 @@ function displayPage() {
         body.classList.remove("yellow", "orange");
       }
       //   fade in background to blue over 3 seconds
-      body.style.transition = "background-color 3s ease-in-out";
-      body.style.backgroundColor = "blue";
+      body.style.transition = "color background-color 3s ease-in-out";
+      body.style.backgroundColor = "#5970a9";
       body.style.color = "white";
     });
 

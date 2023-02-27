@@ -1,10 +1,11 @@
 #maeTitle {
   border-radius: 20px;
-  background-color: #3f3f3f;
+  background-color: #3f3f3f72;
   text-align: center;
   font-size: 50px;
   color: white;
   padding: 10px;
+  transition: 1s ease-in-out;
 }
 
 label[for="moreHours"],
@@ -28,7 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  transition: 2s;
+  transition: 2s ease-in-out;
 }
 
 /* center the form on the page using grid */
@@ -65,7 +66,7 @@ img {
 
 body.yellow #submit:hover {
   box-sizing: border-box;
-  color: #ffff00;
+  color: #cbbd9b;
   border: 10px solid #3f3f3f;
   border-radius: 20px;
   transition: 2s;
@@ -73,7 +74,7 @@ body.yellow #submit:hover {
 
 body.orange #submit:hover {
   box-sizing: border-box;
-  color: #ffa500;
+  color: #b17869;
   border: 10px solid #3f3f3f;
   border-radius: 20px;
   transition: 2s;
@@ -81,7 +82,7 @@ body.orange #submit:hover {
 
 body.blue #submit:hover {
   box-sizing: border-box;
-  color: #0000ff;
+  color: #5970a9;
   border: 10px solid #3f3f3f;
   border-radius: 20px;
   transition: 2s;
@@ -111,30 +112,30 @@ body.blue #submit:hover {
 body.yellow #submit #officeHoursRate .date {
   color: black;
   border-color: black;
-  background-color: #ffff00;
-  transition: 2s;
+  background-color: #cbbd9b;
+  transition: 2s ease-in-out;
 }
 
 /* if body is orange, fades #submit color and background color */
 body.orange #submit #officeHoursRate .date {
   color: black;
   border-color: black;
-  background-color: #ffa500;
-  transition: 2s;
+  background-color: #b17869;
+  transition: 2s ease-in-out;
 }
 
 /* if body is blue, fades #submit color and background color */
 body.blue #submit #officeHoursRate .date {
   color: white;
   border-color: white;
-  background-color: #0000ff;
-  transition: 2s;
+  background-color: #5970a9;
+  transition: 2s ease-in-out;
 }
 
 /* Time of day selection on hover - Begin */
 #morningImg:hover {
   box-sizing: border-box;
-  border: 10px solid #ffff00;
+  border: 10px solid #cbbd9b;
   border-radius: 50%;
   opacity: 0.9;
   transition: 2s;
@@ -142,7 +143,7 @@ body.blue #submit #officeHoursRate .date {
 
 #afternoonImg:hover {
   box-sizing: border-box;
-  border: 10px solid #ffa500;
+  border: 10px solid #b17869;
   border-radius: 50%;
   opacity: 0.9;
   transition: 2s;
@@ -150,7 +151,7 @@ body.blue #submit #officeHoursRate .date {
 
 #eveningImg:hover {
   box-sizing: border-box;
-  border: 10px solid #0000ff;
+  border: 10px solid #5970a9;
   border-radius: 50%;
   opacity: 0.9;
   transition: 2s;
